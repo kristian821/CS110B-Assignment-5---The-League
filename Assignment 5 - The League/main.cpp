@@ -43,9 +43,56 @@
 //
 
 #include <iostream>
+#include <string>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return EXIT_SUCCESS;
+// Function prototypes
+void initializeArrays(string names[], int wins[], int size);
+void sortData(string names[], int wins[], int size);
+void displayData(string names[], int wins[], int size);
+
+const int SIZE = 5;
+
+int main()
+{
+    string names[SIZE];                 // Array of the team names
+    int wins[SIZE];                     // Array of the team scores
+    
+    
+    return 0;
+}
+
+
+void initializeArrays(string names[], int wins[], int size)
+{
+    
+}
+
+void sortData(string names[], int wins[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i+1; j < size; j++)
+        {
+            // check if the next value is higher than the current, if yes, swap them
+            if (wins[j] > wins[i])
+            {
+                
+                // Swap the values
+                int tempInt = wins[i];
+                string tempString = names[i];
+                
+                wins[i] = wins[j];
+                names[i] = names[j];
+                
+                wins[j] = tempInt;
+                names[j] = tempString;
+            }
+        }
+    }
+}
+
+void displayData(string names[], int wins[], int size)
+{
+    
 }
