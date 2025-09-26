@@ -68,7 +68,6 @@ int main()
 
 void initializeArrays(string names[], int wins[], int size)
 {
-    cin.ignore();
     for (int i = 0; i < size; i++)
     {
         cout << "Enter team #" << i + 1 << ": ";
