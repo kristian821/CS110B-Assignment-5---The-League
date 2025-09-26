@@ -47,9 +47,9 @@
 using namespace std;
 
 // Function prototypes
-void initializeArrays(string names[], int wins[], int size);
-void sortData(string names[], int wins[], int size);
-void displayData(string names[], int wins[], int size);
+void initializeArrays(string [], int [], int );
+void sortData(string [], int [], int );
+void displayData(string [], int [], int );
 
 const int SIZE = 5;
 
@@ -58,14 +58,25 @@ int main()
     string names[SIZE];                 // Array of the team names
     int wins[SIZE];                     // Array of the team scores
     
+    initializeArrays(names, wins, SIZE);
+    sortData(names, wins, SIZE);
+    displayData(names, wins, SIZE);
+   
     
     return 0;
 }
 
-
 void initializeArrays(string names[], int wins[], int size)
 {
-    
+    for (int i = 0; i < size; i++)
+    {
+        cout << "Enter team #" << i + 1 << ": ";
+        cin >> names[i];
+        
+        cout << "Enter the wins for team #" << i + 1 << ": ";
+        cin >> wins[i];
+    }
+    cout << endl;
 }
 
 void sortData(string names[], int wins[], int size)
@@ -94,5 +105,10 @@ void sortData(string names[], int wins[], int size)
 
 void displayData(string names[], int wins[], int size)
 {
+    cout << "League Standings:" << endl;
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << names[i] << ": " << wins[i] << endl;
+    }
     
 }
