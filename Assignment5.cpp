@@ -1,40 +1,3 @@
-/*
- Write a program that records and displays league standings for a baseball league. The program will ask the user to enter five team names, and five win amounts. It will store the data in memory, and print it back out sorted by wins from highest to lowest.
-
- The sample output from your program should look something like this (user input in bold orange):
-
- Enter team #1: Padres
- Enter the wins for team #1: 75
- Enter team #2: Dodgers
- Enter the wins for team #2: 91
- Enter team #3: Giants
- Enter the wins for team #3: 92
- Enter team #4: Rockies
- Enter the wins for team #4: 65
- Enter team #5: Diamondbacks
- Enter the wins for team #5: 70
-
- League Standings:
- Giants: 92
- Dodgers: 91
- Padres: 75
- Diamondbacks: 70
- Rockies: 65
- Requirements
- The data must be stored in two parallel arrays: an array of strings named teams, and an array of ints named wins.  These arrays must be declared in the main() function.  You can assume that the league has five teams, so each of the arrays should have five elements.
-
- As usual, you may not use any global arrays or global variables.
-
- All of the user input must be done in a function named initializeArrays.  It must have the following signature:
-
- void initializeArrays(string names[], int wins[], int size)
- You must also write two more functions: one to sort both arrays, and one to display the final (sorted) list of team names and scores. They must have the following signatures:
-
- void sortData(string names[], int wins[], int size)
- void displayData(string names[], int wins[], int size)
- The main function should be very short. It should just declare the arrays and then call these three functions.
- */
-
 //
 //  main.cpp
 //  Assignment 5 - The League
@@ -75,7 +38,7 @@ void initializeArrays(string names[], int wins[], int size)
         
         cout << "Enter the wins for team #" << i + 1 << ": ";
         cin >> wins[i];
-        cin.ignore();
+	cin.ignore();
     }
     cout << endl;
 }
@@ -113,3 +76,43 @@ void displayData(string names[], int wins[], int size)
     }
     
 }
+
+/*
+SAMPLE OUTPUT
+[kmitch79@hills ~]$ ./a.out 
+Enter team #1: Padres
+Enter the wins for team #1: 75
+Enter team #2: Dogers
+Enter the wins for team #2: 91
+Enter team #3: Giants
+Enter the wins for team #3: 92
+Enter team #4: Rockies
+Enter the wins for team #4: 65
+Enter team #5: Diamondbacks
+Enter the wins for team #5: 70
+
+League Standings:
+Giants: 92
+Dogers: 91
+Padres: 75
+Diamondbacks: 70
+Rockies: 65
+[kmitch79@hills ~]$ ./a.out 
+Enter team #1: Team 1
+Enter the wins for team #1: 10 
+Enter team #2: Team 2
+Enter the wins for team #2: 56
+Enter team #3: Team 3
+Enter the wins for team #3: 45
+Enter team #4: Team 4
+Enter the wins for team #4: 56
+Enter team #5: Team 5
+Enter the wins for team #5: 100
+
+League Standings:
+Team 5: 100
+Team 4: 56
+Team 2: 56
+Team 3: 45
+Team 1: 10
+*/
