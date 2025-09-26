@@ -68,13 +68,18 @@ int main()
 
 void initializeArrays(string names[], int wins[], int size)
 {
+    cin.ignore();
     for (int i = 0; i < size; i++)
     {
         cout << "Enter team #" << i + 1 << ": ";
         getline(cin, names[i]);
         
         cout << "Enter the wins for team #" << i + 1 << ": ";
-        cin >> wins[i];
+        while (!(cin >> wins[i]) || wins[i] < 0) {
+            cout << "Invalid input. Please enter a non-negative number: ";
+            cin.clear();
+            cin.ignore();
+        }
         cin.ignore();
     }
     cout << endl;
@@ -86,10 +91,9 @@ void sortData(string names[], int wins[], int size)
     {
         for (int j = i+1; j < size; j++)
         {
-            // check if the next value is higher than the current, if yes, swap them
-            if (wins[j] > wins[i])
+            // Sort the wins, if the wins are the same, then list the team names alphabetically
+            if (wins[j] > wins[i] || (wins[j] == wins[i] && names[j] < names[i]))
             {
-                
                 // Swap the values
                 int tempInt = wins[i];
                 string tempString = names[i];
@@ -107,7 +111,7 @@ void sortData(string names[], int wins[], int size)
 void displayData(string names[], int wins[], int size)
 {
     cout << "League Standings:" << endl;
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < size; i++)
     {
         cout << names[i] << ": " << wins[i] << endl;
     }
